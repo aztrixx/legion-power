@@ -18,7 +18,6 @@
     "width": 420
   },
   "files": [
-    "bin/install.sh",
     "bin/legion-power-helper.sh",
     "bin/save-state.sh",
     "content/Card.qml",

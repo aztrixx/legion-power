@@ -133,7 +133,7 @@ Item {
     Process {
         id: writeStateProc
         onExited: (exitCode, exitStatus) => {
-            applyProc.command = ["pkexec", svc.helperPath, "apply"];
+            applyProc.command = ["pkexec", "/home/astrixx/.local/share/ryoku/plugins/legion-power/bin/legion-power-helper.sh", "apply"];
             applyProc.running = true;
         }
     }

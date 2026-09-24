@@ -1,5 +1,5 @@
 #!/bin/bash
-# Instala legion-power en Ryoku con `ryoku plugin add`.
+# Instala el plugin legion-power en Ryoku con `ryoku plugin add`.
 #
 # Ryoku exige que la ruta absoluta del helper en service/Main.qml y en
 # manifest.json (capabilities.privileged) sea identica. El repositorio trae la
@@ -7,7 +7,7 @@
 # esa ruta por el home del usuario actual y valida e instala desde ahi.
 # El repositorio original no se modifica.
 #
-# Uso:  ./bin/install.sh [--reinstall]
+# Uso:  ./install.sh [--reinstall]
 #   --reinstall  ejecuta antes `ryoku plugin remove legion-power`
 set -euo pipefail
 
@@ -42,16 +42,18 @@ if ! grep -qs legion_hwmon /sys/class/hwmon/hwmon*/name; then
     warn "no veo el driver legion_laptop (legion_hwmon). El plugin se instala, pero no controlara los ventiladores hasta cargarlo."
 fi
 if [ -n "${XDG_STATE_HOME:-}" ] && [ "$XDG_STATE_HOME" != "$HOME/.local/state" ]; then
-    warn "XDG_STATE_HOME no es ~/.local/state: edita STATE_FILE en bin/legion-power-helper.sh."
+    warn "XDG_STATE_HOME no es ~/.local/state: edita STATE_FILE en legion-power/bin/legion-power-helper.sh."
 fi
 
-SRC_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PLUGIN_SRC="$REPO_DIR/$PLUGIN_ID"
+[ -f "$PLUGIN_SRC/manifest.json" ] || fail "no encuentro $PLUGIN_SRC/manifest.json (ejecuta el script desde el repositorio completo)."
+
 WORK="$(mktemp -d)"
 trap 'rm -rf "$WORK"' EXIT
 PKG="$WORK/$PLUGIN_ID"       # Ryoku exige que la carpeta se llame como el id
 mkdir -p "$PKG"
-cp -a "$SRC_DIR/." "$PKG/"
-rm -rf "$PKG/.git"
+cp -a "$PLUGIN_SRC/." "$PKG/"
 
 if [ "$DEST_BASE" != "$REPO_BASE" ]; then
     sed -i "s|${REPO_BASE//./\\.}|$DEST_BASE|g" "$PKG/manifest.json" "$PKG/service/Main.qml"
