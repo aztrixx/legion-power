@@ -2,7 +2,7 @@
   "id": "legion-power",
   "name": "Legion Power",
   "version": "0.3.0",
-  "author": "astrixx 189586804+aztrixx@users.noreply.github.com",
+  "author": "astrixx <189586804+aztrixx@users.noreply.github.com>",
   "description": "Control de PL1, techo de frecuencia, powermode y curva de ventiladores para el Legion/LOQ, con persistencia y reaplicacion automatica en Custom.",
   "license": "MIT",
   "official": false,
