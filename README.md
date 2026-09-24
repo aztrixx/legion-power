@@ -22,6 +22,7 @@ Requiere Ryoku, un Legion/LOQ con el driver `legion_laptop` de [LenovoLegionLinu
 
 - `install.sh`: instalador (ajusta la ruta del helper a tu `$HOME`, valida e instala).
 - `legion-power/`: el plugin en sí. Su [README](legion-power/README.md) documenta qué hace, qué lee, qué escribe y qué se ejecuta con privilegios.
+- Tested only on the LOQ 15IRX10; I do not know—nor do I have a device to verify—whether it works on other models.
 
 ## Licencia
 
