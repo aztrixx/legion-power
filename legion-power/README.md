@@ -20,7 +20,7 @@ Probado en un Lenovo LOQ 15 (i5-13450HX, RTX 5050). En otro modelo los umbrales 
 La forma recomendada es el instalador, que está en la raíz del repositorio (fuera de esta carpeta):
 
 ```bash
-git clone <url-de-este-repositorio> legion-power
+git clone https://github.com/aztrixx/legion-power.git legion-power
 cd legion-power
 ./install.sh
 ```

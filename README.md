@@ -9,7 +9,7 @@ Plugin de la barra de Ryoku para portátiles Lenovo Legion / LOQ: controla el l�
 ## Instalación
 
 ```bash
-git clone <url-de-este-repositorio> legion-power
+git clone https://github.com/aztrixx/legion-power.git legion-power
 cd legion-power
 ./install.sh
 ```
