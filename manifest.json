@@ -1,0 +1,56 @@
+{
+  "id": "legion-power",
+  "name": "Legion Power",
+  "version": "0.3.0",
+  "author": "astrixx <TU-CORREO>",
+  "description": "Control de PL1, techo de frecuencia, powermode y curva de ventiladores para el Legion/LOQ, con persistencia y reaplicacion automatica en Custom.",
+  "license": "MIT",
+  "official": false,
+  "hosts": [
+    "topbarGlyph"
+  ],
+  "entryPoints": {
+    "main": "service/Main.qml",
+    "content": "content/Widget.qml",
+    "panel": "content/Panel.qml"
+  },
+  "panel": {
+    "width": 420
+  },
+  "files": [
+    "bin/install.sh",
+    "bin/legion-power-helper.sh",
+    "bin/save-state.sh",
+    "content/Card.qml",
+    "content/Glyph.qml",
+    "content/NotchedRing.qml",
+    "content/Panel.qml",
+    "assets/logo.png",
+    "assets/preview-widget.png"
+  ],
+  "capabilities": {
+    "densities": [
+      "glyph",
+      "compact"
+    ],
+    "privileged": [
+      "pkexec /home/astrixx/.local/share/ryoku/plugins/legion-power/bin/legion-power-helper.sh apply"
+    ]
+  },
+  "defaults": {
+    "host": "topbarGlyph",
+    "label": "Legion Power"
+  },
+  "commands": [
+    "bin/legion-power-helper.sh"
+  ],
+  "dependencies": {
+    "commands": [
+      "pkexec",
+      "sensors"
+    ]
+  },
+  "metadata": {
+    "settings": []
+  }
+}
