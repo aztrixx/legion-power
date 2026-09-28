@@ -1,4 +1,13 @@
 # Legion Power
+Modelo: LOQ 15IRX10 (83JE)
+
+BIOS: R3CN44WW
+
+Síntoma: CPU a 400 MHz con temps normales, solo en modo custom, solo en Linux.
+
+Evidencia: powermode EC=144 aunque el driver diga 255; /sys/devices/platform/legion/powermode solo acepta 255 pero el EC lo ignora; curva en hardware corrupta; funciona en Windows con el mismo hardware y adaptadores distintos.
+
+Conclusión: limitación del EC, no del driver ni de la configuración.
 
 Plugin de la barra de Ryoku para portátiles Lenovo Legion / LOQ: controla el límite de potencia (PL1), el techo de frecuencia, el modo de energía y la curva de los ventiladores desde un panel, y guarda tu configuración.
 
